@@ -2,14 +2,27 @@
 title: "Exploring the Node.js Event Loop"
 date: "2023-09-18"
 description: "Explore the Node.js event loop and its phases for managing and executing asynchronous tasks. Learn about Libuv, the Reactor pattern, and callbacks."
-tags: ["node.js", "event loop", "libuv", "asynchronous programming", "javascript", "reactor pattern", "non-blocking i/o", "performance optimization"]
+tags:
+  [
+    "node.js",
+    "event loop",
+    "libuv",
+    "asynchronous programming",
+    "javascript",
+    "reactor pattern",
+    "non-blocking i/o",
+    "performance optimization",
+  ]
 ---
 
 The Event Loop is responsible for scheduling and executing tasks in separate stacks. It is present both in JavaScript and Node.js architecture (part of Libuv).
 
 But before we dive into the event loop itself, let’s take a look at this Node.js architecture overview diagram:
 
-![Node Architecture Diagram](/images/node-js-structure.png)
+<CustomImage
+  src="https://raw.githubusercontent.com/andreiafsouza/blogposts-git-repo/main/images/node-js-structure.png"
+  alt="Node Architecture Diagram"
+/>
 
 _Reference: This diagram is based on [this image](https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781492077282/files/assets/dsnj_0103.png)._
 
@@ -24,7 +37,10 @@ As you might have guessed by its name, the Event Loop operates in a loop, managi
 
 We can take a look at the Reactor Pattern in Node.js to check out how the Event Loop works:
 
-![Reactor Pattern Diagram](/images/reactor-pattern.png)
+<CustomImage
+  src="https://raw.githubusercontent.com/andreiafsouza/blogposts-git-repo/main/images/reactor-pattern.png"
+  alt="Reactor Pattern Diagram"
+/>
 
 _Reference: This diagram is based on [this image](https://learning.oreilly.com/api/v2/epubs/urn:orm:book:9781839214110/files/Images/B15729_01_03.png)._
 
@@ -38,7 +54,10 @@ We might also describe, in a very simple way, the asynchronous behavior: The app
 
 The Event Loop is a critical part of the Libuv library, which is based on this exact Reactor Pattern. However, we have different components acting as event demultiplexers depending on each operational system, and that is called the I/O polling interface. Also, the Event Loop has several stages that can hold different event queues for the callbacks as well. Let’s take a look at those stages:
 
-![Libuv Event Loop Diagram](/images/libuv-event-loop.png)
+<CustomImage
+  src="https://raw.githubusercontent.com/andreiafsouza/blogposts-git-repo/main/images/libuv-event-loop.png"
+  alt="Libuv Event Loop Diagram"
+/>
 
 _Reference: This diagram is based on [this image](https://docs.libuv.org/en/v1.x/_images/loop_iteration.png)._
 
